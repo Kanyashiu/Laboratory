@@ -1,2 +1,7 @@
-# Laboratory
-Bienvenue dans mon petit laboratoire secret, qui me permet de tester des comportement de code afin d'en comprendre les arcane, si vous remarque une incohérence ou des erreurs n'hésite pas à me corriger j'aime apprendre des nouvelles choses et d'en transmettre aussi ! :D
+# Laboratory :alien:
+
+Bienvenue dans mon petit laboratoire secret ( pas tant secret que ça en faite :stuck_out_tongue_winking_eye  ) ! :smiley:
+
+Cet endroit me permet de partager avec tout le monde les différents comportements de code dans différents languages que j'ai essayé de comprendre afin d'en cerner les arcanes ! :neckbeard:
+
+N'étant pas à l'abri des erreurs :sweat_smile:, si vous remarquez une incohérence ou des erreurs n'hésitez pas à me corriger via des PR ou Issues, j'aime apprendre des nouvelles choses et en transmettre aussi ! :grin:
