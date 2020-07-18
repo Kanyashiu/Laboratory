@@ -1,0 +1,2 @@
+- Amélioration des commentaires Héritage
+- Amélioration affichage dans le console Argument ?

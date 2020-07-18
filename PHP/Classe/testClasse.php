@@ -1,5 +1,10 @@
 <?php
 
+//==================================
+// DISCLAIMER
+// Les tests ci-dessous on été réalisé avec la version 7.3.11 de PHP
+//==================================
+
 class ParentTest
 {   
     public $publiqueParent = 'Propriété public PARENT <br>';
