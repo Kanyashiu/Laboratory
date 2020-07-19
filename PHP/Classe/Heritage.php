@@ -49,7 +49,7 @@ echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "CLASSE PARENT" . PHP_EOL;
 echo "================================\033[0m\f\f" . PHP_EOL;
 
-$ClassParent->affichageParent(); // Sortie : affiche tout les types de propriétés appeler dans la méthode affichage() sauf les propriétés de la classe Enfant
+$ClassParent->affichageParent(); // Sortie : affiche tout les types de propriétés contenu dans la classe Parent mais pas ceux de la classe Enfant
 
 
 class EnfantTest extends ParentTest
@@ -78,13 +78,13 @@ class EnfantTest extends ParentTest
 }
 
 $ClassEnfant = new EnfantTest();
-//echo $ClassEnfant->publiqueParent; // OK ( Propriété de type publique )
-//echo $ClassEnfant->priveParent; // Fatal Error ( Propriété de type privé )
-//echo $ClassEnfant->protegeParent; // Fatal Error ( Propriété de type protégé )
+//echo $ClassEnfant->publiqueParent; // Sortie : "Propriété public PARENT" ( Propriété de type publique )
+//echo $ClassEnfant->priveParent; // Sortie : Fatal Error ( Propriété de type privé )
+//echo $ClassEnfant->protegeParent; // Sortie : Fatal Error ( Propriété de type protégé )
 
 echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "CLASSE ENFANT" . PHP_EOL;
 echo "================================\033[0m\f\f" . PHP_EOL;
 
-$ClassEnfant->affichageParent(); // affiche toutes les propriétés contenu dans le parent & l'enfant grâce à la méthode affichage();
-$ClassEnfant->affichageEnfant(); // 
+$ClassEnfant->affichageParent(); // Sortie : affiche tout les types de propriétés contenu dans la classe Parent et la classe Enfant
+$ClassEnfant->affichageEnfant(); // Sortie : affiche tout les types de propriétés contenu dans la classe Parent ( sauf la propriété privé ) et la classe Enfant
