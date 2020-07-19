@@ -8,10 +8,15 @@
 
 class ConstanteTest {
 
-    const LOL = 'LOL <br>';
-    const NON = 'NON <br>';
-    const TEST = 'TEST <br>';
-    const oui = 'OUI <br>';
+    const LOL = 'LOL' . PHP_EOL;
+    const NON = 'NON' . PHP_EOL;
+    const TEST = 'TEST' . PHP_EOL;
+    const oui = 'OUI' . PHP_EOL;
 }
-//$constanteTest = new ConstanteTest(); // Pas besoin d'instancier la classe pour utiliser une constante ( comme pour le static )
-echo ConstanteTest::LOL; // Appel comme le static afin d'afficher cette constante
+//$constanteTest = new ConstanteTest(); // Pas besoin d'instancier la classe pour utiliser une constante ( comme pour les propriétés ou méthodes de type static )
+
+// Comme pour les appel static cette écriture permet d'appeler une constante stocké dans une classe
+echo ConstanteTest::LOL;
+echo ConstanteTest::NON;
+echo ConstanteTest::TEST;
+echo ConstanteTest::oui;
