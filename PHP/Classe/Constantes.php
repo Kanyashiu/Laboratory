@@ -8,15 +8,32 @@
 
 class ConstanteTest {
 
-    const LOL = 'LOL' . PHP_EOL;
-    const NON = 'NON' . PHP_EOL;
-    const TEST = 'TEST' . PHP_EOL;
-    const oui = 'OUI' . PHP_EOL;
-}
-//$constanteTest = new ConstanteTest(); // Pas besoin d'instancier la classe pour utiliser une constante ( comme pour les propriétés ou méthodes de type static )
+    const INSTANCE = 'INSTANCE' . PHP_EOL;
 
-// Comme pour les appel static cette écriture permet d'appeler une constante stocké dans une classe
-echo ConstanteTest::LOL;
-echo ConstanteTest::NON;
-echo ConstanteTest::TEST;
-echo ConstanteTest::oui;
+    // Comme pour les propriétés les constantes peuvent avoir un type
+
+    public const PUBLIC = 'PUBLIC' . PHP_EOL;
+    private const PRIVATE = 'PRIVATE' . PHP_EOL;
+    protected const PROTECTED = 'PROTECDED' . PHP_EOL;
+}
+
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "CLASSE INSTANCIÉ" . PHP_EOL;
+echo "================================\033[0m\f\f" . PHP_EOL;
+
+// Cette écriture est possible, mais pas besoin d'instancier la classe pour utiliser une constante ( comme pour les propriétés ou méthodes de type static )
+
+$constanteTest = new ConstanteTest(); 
+echo $constanteTest::INSTANCE; // Sortie : INSTANCE
+
+
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "CLASSE NON INSTANCIÉ" . PHP_EOL;
+echo "================================\033[0m\f\f" . PHP_EOL;
+
+// Comme pour les appel static cette écriture permet d'appeler une constante stocké dans une classe sans avoir à l'instancier
+
+echo ConstanteTest::INSTANCE; // Sortie : INSTANCE
+echo ConstanteTest::PUBLIC; // Sortie : PUBLIC
+// echo ConstanteTest::PRIVATE; // Sortie : Fatal Error ( Propriété de type privé )
+// echo ConstanteTest::PROTECTED; // Sortie : Fatal Error ( Propriété de type protégée )
