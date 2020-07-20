@@ -33,7 +33,7 @@ echo "================================\033[0m\f\f" . PHP_EOL;
 
 // Comme pour les appel static cette écriture permet d'appeler une constante stocké dans une classe sans avoir à l'instancier
 
-echo ConstanteTest::INSTANCE; // Sortie : INSTANCE
-echo ConstanteTest::PUBLIC; // Sortie : PUBLIC
+echo ConstanteTest::INSTANCE; // Sortie : INSTANCE ( Aucun type déclaré )
+echo ConstanteTest::PUBLIC; // Sortie : PUBLIC ( Propriété de type publique)
 // echo ConstanteTest::PRIVATE; // Sortie : Fatal Error ( Propriété de type privé )
 // echo ConstanteTest::PROTECTED; // Sortie : Fatal Error ( Propriété de type protégée )

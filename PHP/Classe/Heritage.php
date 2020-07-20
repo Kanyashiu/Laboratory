@@ -31,7 +31,7 @@ class ParentTest
         // Propriétés appartenant à la classe Enfant
         echo "== Propriétés ENFANT == \f\f"  . PHP_EOL;
         // la classe Parent ne peut pas appeler directement les propriétés de la classe Enfant car il n'hérite pas des propriétés de celui ci
-        // mais quand la classe Enfant appel cette méthode la propriété peut-être appeler
+        // mais quand la classe Enfant appel cette méthode les propriétés peuvent être appeler
         echo $this->publiqueEnfant; // Sortie : Notice error
         //echo $this->priveEnfant; // Sortie : Fatal Error ( Propriété de type privé )
         echo $this->protegeEnfant; // Sortie : Notice error
