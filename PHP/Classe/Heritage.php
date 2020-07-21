@@ -12,14 +12,14 @@ class ParentTest
 {   
     public $publiqueParent = "Propriété public PARENT" . PHP_EOL;
     private $priveParent = "Propriété privé PARENT" . PHP_EOL;
-    protected $protegeParent = "Propriété protégé PARENT \f\f" . PHP_EOL;
+    protected $protegeParent = "Propriété protégé PARENT" . PHP_EOL;
 
     public function affichageParent()
     {
         echo "========= Methode affichageParent ==========\f\f" . PHP_EOL;
 
         // Propriétés appartenant a la classe Parent
-        echo "== Propriétés PARENT == \f\f" . PHP_EOL;
+        echo "== Propriétés PARENT ==" . PHP_EOL;
         echo $this->publiqueParent; // Sortie : Propriété public PARENT
         echo $this->priveParent; // Sortie : Propriété privé PARENT
         echo $this->protegeParent; // Sortie : Propriété protégé PARENT
@@ -28,8 +28,9 @@ class ParentTest
         // La classe Parent ne peut pas faire appel au propriétés de la classe Enfant
         // =========================
         
+        echo "\f\f";
         // Propriétés appartenant à la classe Enfant
-        echo "== Propriétés ENFANT == \f\f"  . PHP_EOL;
+        echo "== Propriétés ENFANT =="  . PHP_EOL;
         // la classe Parent ne peut pas appeler directement les propriétés de la classe Enfant car il n'hérite pas des propriétés de celui ci
         // mais quand la classe Enfant appel cette méthode les propriétés peuvent être appeler
         echo $this->publiqueEnfant; // Sortie : Notice error
@@ -56,29 +57,31 @@ class EnfantTest extends ParentTest
 {   
     public $publiqueEnfant = "Propriété public ENFANT" . PHP_EOL;
     private $priveEnfant = "Propriété privé ENFANT" . PHP_EOL;
-    protected $protegeEnfant = "Propriété protégé ENFANT \f\f" . PHP_EOL;
+    protected $protegeEnfant = "Propriété protégé ENFANT" . PHP_EOL;
 
     public function affichageEnfant()
     {   
         echo "========= Methode affichageEnfant ========== \f\f" . PHP_EOL;
         
         // Propriétés appartenant a la classe Parent
-        echo "== Propriétés PARENT == \f\f" . PHP_EOL;
+        echo "== Propriétés PARENT ==" . PHP_EOL;
         echo $this->publiqueParent; // Sortie : Propriété public PARENT
         echo $this->priveParent; // Sortie : Notice Error ( Ne fonctionne pas car seul le parent peut l'appeler ( Propriété de type privé ) )
         echo $this->protegeParent; // Sortie : Propriété protégé PARENT ( Merci l'héritage )
 
+        echo "\f\f";
+        
         // Propriété appartenant a la classe Enfant
-        echo "== Propriétés ENFANT == \f\f" . PHP_EOL;
-        echo $this->publiqueEnfant; // Sortie : "Propriété public ENFANT"
-        echo $this->priveEnfant; // Sortie : "Propriété privé ENFANT"
-        echo $this->protegeEnfant; // Sortie : "Propriété protégé ENFANT"
+        echo "== Propriétés ENFANT ==" . PHP_EOL;
+        echo $this->publiqueEnfant; // Sortie : Propriété public ENFANT
+        echo $this->priveEnfant; // Sortie : Propriété privé ENFANT
+        echo $this->protegeEnfant; // Sortie : Propriété protégé ENFANT
         echo PHP_EOL;
     }
 }
 
 $ClassEnfant = new EnfantTest();
-//echo $ClassEnfant->publiqueParent; // Sortie : "Propriété public PARENT" ( Propriété de type publique )
+//echo $ClassEnfant->publiqueParent; // Sortie : Propriété public PARENT ( Propriété de type publique )
 //echo $ClassEnfant->priveParent; // Sortie : Fatal Error ( Propriété de type privé )
 //echo $ClassEnfant->protegeParent; // Sortie : Fatal Error ( Propriété de type protégé )
 

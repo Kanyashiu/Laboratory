@@ -35,7 +35,6 @@ echo "==============APPEL STATIC================" . PHP_EOL;
 // Appel static sur des propriété et méthode defini en static
 echo StaticTest::$propertyStatic; // Sortie : StaticTest
 echo StaticTest::methodStatic(); // Sortie : methodStatic
-
 echo "\f\f";
 
 
@@ -44,7 +43,6 @@ echo "==============APPEL CLASSIQUE================" . PHP_EOL;
 // Appel static sur des propriété et méthode defini de manière classique
 //echo StaticTest::$propertyNonstatic; // Sortie : Fatal Error ( Nécessaire que la propriété soit en STATIC Sinon Fatal Error ) ( L'erreur : Uncaught Error: Access to undeclared static property: StaticTest::$propertyNonstatic )
 echo StaticTest::methodNonStatic(); // Sortie : methodNonStatic ( La sortie est bien effectué mais une erreur deprecated est déclenché ) ( L'erreur : Non-static method StaticTest::methodNonStatic() should not be called statically )
-
 echo "\f\f";
 
 echo "==============APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE DEFINI EN STATIC================" . PHP_EOL;
@@ -52,7 +50,6 @@ echo "==============APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE DEFINI EN STATI
 $appelStatic = new StaticTest();
 //echo $appelStatic->propertyStatic; // Sortie : 2 Notice Error ( L'erreur : Accessing static property StaticTest::$propertyStatic as non static ) & ( L'erreur : Undefined property: StaticTest::$propertyStatic)
 echo $appelStatic->methodStatic(); // Sortie : methodStatic
-
 echo "\f\f";
 
 //! RESTE A FAIRE CI DESSOUS

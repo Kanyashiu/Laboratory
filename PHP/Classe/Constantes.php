@@ -19,17 +19,19 @@ class ConstanteTest {
 
 echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "CLASSE INSTANCIÉ" . PHP_EOL;
-echo "================================\033[0m\f\f" . PHP_EOL;
+echo "================================\033[0m" . PHP_EOL;
 
 // Cette écriture est possible, mais pas besoin d'instancier la classe pour utiliser une constante ( comme pour les propriétés ou méthodes de type static )
 
 $constanteTest = new ConstanteTest(); 
 echo $constanteTest::INSTANCE; // Sortie : INSTANCE
+echo "\f\f";
 
 
 echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "CLASSE NON INSTANCIÉ" . PHP_EOL;
-echo "================================\033[0m\f\f" . PHP_EOL;
+echo "================================\033[0m" . PHP_EOL;
+
 
 // Comme pour les appel static cette écriture permet d'appeler une constante stocké dans une classe sans avoir à l'instancier
 
@@ -37,3 +39,4 @@ echo ConstanteTest::INSTANCE; // Sortie : INSTANCE ( Aucun type déclaré )
 echo ConstanteTest::PUBLIC; // Sortie : PUBLIC ( Propriété de type publique)
 // echo ConstanteTest::PRIVATE; // Sortie : Fatal Error ( Propriété de type privé )
 // echo ConstanteTest::PROTECTED; // Sortie : Fatal Error ( Propriété de type protégée )
+echo "\f\f";
