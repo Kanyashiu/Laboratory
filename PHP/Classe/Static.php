@@ -6,44 +6,61 @@
 // Si vous voulez tester ce script placer vous dans le dossier contenant ce script avec votre console et taper "php nom-du-script.php"
 //==================================
 
-//! EXEMPLE STATIC
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "CLASSE StaticTest" . PHP_EOL;
+echo "================================\033[0m\f\f" . PHP_EOL;
 
-echo '<br>==============TEST StaticTest ================<br>';
-class StaticTest {
-    public static $propertyStatic = self::class . '<br>';
+class StaticTest
+{
+    
+    // Propriété et méthode déclaré en static
+    public static $propertyStatic = self::class . PHP_EOL;
 
-    public static function methodStatic() {
-        return 'methodStatic';
+    public static function methodStatic()
+    {
+        return "methodStatic" . PHP_EOL;
     }
 
-    public $propertyNonstatic = self::class . '<br>';
+    // Propriété et méthode déclaré de manière classique
+    public $propertyNonstatic = self::class . PHP_EOL;
 
-    public function methodNonStatic() {
-        return 'methodNonStatic';
+    public function methodNonStatic()
+    {
+        return "methodNonStatic" . PHP_EOL;
     }
 }
 
-echo '<br>==============TEST APPEL STATIC================<br>';
+echo "==============APPEL STATIC================" . PHP_EOL;
 
-//! APPEL STATIC SUR DES PROPRIETE ET METHODE DEFINI EN STATIC
-echo StaticTest::$propertyStatic; // Marche 
-echo StaticTest::methodStatic(); // Marche
+// Appel static sur des propriété et méthode defini en static
+echo StaticTest::$propertyStatic; // Sortie : StaticTest
+echo StaticTest::methodStatic(); // Sortie : methodStatic
 
-//! APPEL STATIC SUR DES PROPRIETE ET METHODE NON DEFINI EN STATIC
-//echo StaticTest::$propertyNonstatic; // Fatal Error ( Nécessaire que la propriété soit en STATIC Sinon Fatal Error ) ( Uncaught Error: Access to undeclared static property: StaticTest::$propertyNonstatic )
-echo StaticTest::methodNonStatic(); // Marche ( AVEC Deprecated ) (Erreur Deprecated arrete pas le script ???) (Magie Php ?) //! <= /!\
+echo "\f\f";
 
-echo '<br>==============TEST APPEL CLASSIQUE================<br>';
 
-//! APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE DEFINI EN STATIC
+echo "==============APPEL CLASSIQUE================" . PHP_EOL;
+
+// Appel static sur des propriété et méthode defini de manière classique
+//echo StaticTest::$propertyNonstatic; // Sortie : Fatal Error ( Nécessaire que la propriété soit en STATIC Sinon Fatal Error ) ( L'erreur : Uncaught Error: Access to undeclared static property: StaticTest::$propertyNonstatic )
+echo StaticTest::methodNonStatic(); // Sortie : methodNonStatic ( La sortie est bien effectué mais une erreur deprecated est déclenché ) ( L'erreur : Non-static method StaticTest::methodNonStatic() should not be called statically )
+
+echo "\f\f";
+
+echo "==============APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE DEFINI EN STATIC================" . PHP_EOL;
+
 $appelStatic = new StaticTest();
-//echo $appelStatic->propertyStatic; // Notice (Accessing static property) & Notice (Undefined property: StaticTest::$propertyStatic)
-echo $appelStatic->methodStatic(); // Marche (Magie Php ?) //! <= /!\
+//echo $appelStatic->propertyStatic; // Sortie : 2 Notice Error ( L'erreur : Accessing static property StaticTest::$propertyStatic as non static ) & ( L'erreur : Undefined property: StaticTest::$propertyStatic)
+echo $appelStatic->methodStatic(); // Sortie : methodStatic
 
-//! APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE NON DEFINI EN STATIC
+echo "\f\f";
+
+//! RESTE A FAIRE CI DESSOUS
+echo "==============APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE CLASSIQUE================" . PHP_EOL;
 $appelNonStatic = new StaticTest();
 echo $appelNonStatic->propertyNonstatic; // Marche ( classique )
 echo $appelNonStatic->methodNonStatic(); // Marche ( classique )
+
 
 
 
