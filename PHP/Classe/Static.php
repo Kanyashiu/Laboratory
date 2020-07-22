@@ -38,64 +38,70 @@ echo StaticTest::methodStatic(); // Sortie : methodStatic
 echo "\f\f";
 
 
-echo "==============APPEL CLASSIQUE================" . PHP_EOL;
+echo "==============APPEL NON STATIC================" . PHP_EOL;
 
-// Appel static sur des propriété et méthode defini de manière classique
+// Appel static sur des propriété et méthode defini de manière non static
 //echo StaticTest::$propertyNonstatic; // Sortie : Fatal Error ( Nécessaire que la propriété soit en STATIC Sinon Fatal Error ) ( L'erreur : Uncaught Error: Access to undeclared static property: StaticTest::$propertyNonstatic )
 echo StaticTest::methodNonStatic(); // Sortie : methodNonStatic ( La sortie est bien effectué mais une erreur deprecated est déclenché ) ( L'erreur : Non-static method StaticTest::methodNonStatic() should not be called statically )
 echo "\f\f";
 
-echo "==============APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE DEFINI EN STATIC================" . PHP_EOL;
+echo "==============APPEL NON STATIC SUR DES PROPRIETES ET METHODE DEFINI EN STATIC================" . PHP_EOL;
 
 $appelStatic = new StaticTest();
-//echo $appelStatic->propertyStatic; // Sortie : 2 Notice Error ( L'erreur : Accessing static property StaticTest::$propertyStatic as non static ) & ( L'erreur : Undefined property: StaticTest::$propertyStatic)
+//echo $appelStatic->propertyStatic; // Sortie : 2 Notice Error ( Accessing static property StaticTest::$propertyStatic as non static ) & ( Undefined property: StaticTest::$propertyStatic)
 echo $appelStatic->methodStatic(); // Sortie : methodStatic
 echo "\f\f";
 
-//! RESTE A FAIRE CI DESSOUS
-echo "==============APPEL CLASSIQUE SUR DES PROPRIETE ET METHODE CLASSIQUE================" . PHP_EOL;
+
+echo "==============APPEL NON STATIC SUR DES PROPRIETES ET METHODES NON STATIC================" . PHP_EOL;
 $appelNonStatic = new StaticTest();
-echo $appelNonStatic->propertyNonstatic; // Marche ( classique )
-echo $appelNonStatic->methodNonStatic(); // Marche ( classique )
+echo $appelNonStatic->propertyNonstatic; // Sortie : StaticTest
+echo $appelNonStatic->methodNonStatic(); // Sortie : methodNonStatic
+echo "\f\f";
 
 
 
+// CE QUE JE PEUX EN DEDUIRE ?
 
-//! CE QUE JE PEUX EN DEDUIRE ?
-//Les méthode non défini en static peuvent être appeler en static ( avec une erreur Deprecated ( Magie php ?) )
-//Les méthodes défini en static peuvent être appeler en non static ( sans erreur ( Magie php ?) )
-//Les propriétés en static sont appelable seulement en static
-//Les propriété en non static sont appelable seulement à leur manière (private, protected, public)
+//Les méthodes non défini en static peuvent être appeler en static ( Mais une erreur Deprecated est enclenchée )
+//Les méthodes défini en static peuvent être appeler en non static ( Sans erreur )
+
+//Les propriétés défini en static sont appelable seulement en static
+//Les propriétés défini en non static ne sont pas appelable en static
 
 
 
-echo '<br>==============TEST StaticTestAdvanced ================<br>';
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "CLASSE StaticTestAdvanced" . PHP_EOL;
+echo "================================\033[0m\f\f" . PHP_EOL;
+
 class StaticTestAdvanced {
-    public static $random = 15;
-    public $random1 = 50;
+    
+    public static $number = 15 . PHP_EOL;
+    public $number1 = 30 . PHP_EOL;
 
     public static function methodSelf() {
-        return self::$random . '<br>';
+        return self::$number;
     }
 
     public function methodThis() {
-        return $this->random1 . '<br>';
+        return $this->number1;
     }
 }
 
-echo '<br>==============TEST APPEL STATIC================<br>';
+echo "==============APPEL STATIC================" . PHP_EOL;
 
-//! APPEL STATIC
-echo StaticTestAdvanced::methodSelf(); // Marche
-//echo StaticTestAdvanced::methodThis(); // Fatal Error (Uncaught Error: Using $this when not in object context) (Deprecated : Non-static method StaticTestAdvanced::methodThis() should not be called statically )
+echo StaticTestAdvanced::methodSelf(); // Sortie : 15
+//echo StaticTestAdvanced::methodThis(); // Sortie : 2 erreur ( Fatal Error Uncaught Error: Using $this when not in object context) & ( Deprecated Non-static method StaticTestAdvanced::methodThis() should not be called statically )
+echo "\f\f";
 
-echo '<br>==============TEST APPEL CLASSIQUE================<br>';
+echo "==============APPEL NON STATIC================" . PHP_EOL;
 
-//! APPEL NON STATIC
 $appelStaticAdvanced = new StaticTestAdvanced();
-echo $appelStaticAdvanced->methodSelf(); // Marche
-echo $appelStaticAdvanced->methodThis(); // Marche
+echo $appelStaticAdvanced->methodSelf(); // Sortie : 15
+echo $appelStaticAdvanced->methodThis(); // Sortie : 30
 
-//! CE QUE JE PEUX EN DEDUIRE ?
-// Le self marche en appel static ou non
+// CE QUE JE PEUX EN DEDUIRE ?
+
+// Le self marche en appel static ou non static dans le cadre d'un objet instancié
 // Le this marche que dans le cadre d'un objet instancié
