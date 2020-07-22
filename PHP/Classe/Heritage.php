@@ -26,9 +26,10 @@ class ParentTest
         
         // ==========================
         // La classe Parent ne peut pas faire appel au propriétés de la classe Enfant
-        // =========================
+        // ==========================
         
         echo "\f\f";
+
         // Propriétés appartenant à la classe Enfant
         echo "== Propriétés ENFANT =="  . PHP_EOL;
         // la classe Parent ne peut pas appeler directement les propriétés de la classe Enfant car il n'hérite pas des propriétés de celui ci
@@ -66,7 +67,7 @@ class EnfantTest extends ParentTest
         // Propriétés appartenant a la classe Parent
         echo "== Propriétés PARENT ==" . PHP_EOL;
         echo $this->publiqueParent; // Sortie : Propriété public PARENT
-        echo $this->priveParent; // Sortie : Notice Error ( Ne fonctionne pas car seul le parent peut l'appeler ( Propriété de type privé ) )
+        //echo $this->priveParent; // Sortie : Notice Error ( Ne fonctionne pas car seul le parent peut l'appeler ( Propriété de type privé ) )
         echo $this->protegeParent; // Sortie : Propriété protégé PARENT ( Merci l'héritage )
 
         echo "\f\f";
@@ -76,7 +77,6 @@ class EnfantTest extends ParentTest
         echo $this->publiqueEnfant; // Sortie : Propriété public ENFANT
         echo $this->priveEnfant; // Sortie : Propriété privé ENFANT
         echo $this->protegeEnfant; // Sortie : Propriété protégé ENFANT
-        echo PHP_EOL;
     }
 }
 
