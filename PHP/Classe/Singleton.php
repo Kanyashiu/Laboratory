@@ -85,8 +85,7 @@ class FailSingleton {
     }
 }
 
-// La variable $count me permet de vérifier que la classe à été instancié qu'une seule fois quand je l'appel plusieurs fois !
-// Dans ce cas la classe n'est pas un Singleton car chaque appel crée est un nouvel objet de la classe FailSingleton
+// Dans ce cas la classe n'est pas un Singleton car chaque appel crée un nouvel objet de la classe FailSingleton
 $failSingleton = FailSingleton::creationInstanceUnique();
 echo(FailSingleton::$count) . PHP_EOL; // Sortie Voulu : 1 , Sortie : 1
 
