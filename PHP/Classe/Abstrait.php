@@ -10,6 +10,10 @@
 // Documentation sur les classe abstraites :
 // https://www.php.net/manual/fr/language.oop5.abstract.php
 
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "CLASSE ABSTRAITE" . PHP_EOL;
+echo "================================\033[0m" . PHP_EOL;
+
 abstract class ClassAbstraite
 {
 
