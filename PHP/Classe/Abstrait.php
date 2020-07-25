@@ -21,7 +21,7 @@ abstract class ClassAbstraite
     // Force les classes filles à définir ces méthodes
     abstract protected function getNumber($id);
     abstract protected function getHello();
-    abstract protected function publicMethod();
+    abstract public function publicMethod();
 
     // Une classe abstraite ne peut pas contenir de définitions de propriéte en son sein
     // Cela génère une fatal error : Properties cannot be declared abstract
@@ -56,7 +56,7 @@ class EnfantAbstrait extends ClassAbstraite
     // Méthode déclaré public dans la classe abstraite => protected : X ; private : X
     // Méthode déclaré protected dans la classe abstraite => public : V ; private : X
     // Méthode déclaré private dans la classe abstraite => Aucune méthode avec une visibilité privé ne peut être déclaré dans une classe abstraite
-    public function publicMethod() {
+    protected function publicMethod() {
         return 'publicMethod' . PHP_EOL;
     }
     
