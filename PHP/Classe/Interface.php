@@ -5,48 +5,59 @@
 // Les tests ci-dessous on été réalisé avec la version 7.3.11 de PHP
 // Si vous voulez tester ce script placer vous dans le dossier contenant ce script avec votre console et taper "php nom-du-script.php"
 //==================================
+ 
+
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "INTERFACE" . PHP_EOL;
+echo "================================\033[0m" . PHP_EOL;
 
 
-echo '<br>==============TEST ClassInterface Classique ================<br>';
-
-
-//! EXEMPLE CLASSE INTERFACE
+// Documentation sur les interface :
 //https://www.php.net/manual/fr/language.oop5.interfaces.php
-// Les interfaces objet vous permettent de créer du code qui spécifie quelles méthodes une classe doit implémenter, sans avoir à définir comment ces méthodes fonctionneront.
+
 
 // Declaration de l'interface 'interfaceTest'
 interface interfaceTest
 {
-    //! Une interface ne peut pas contenir de corps ( algorithme défini à l'intérieur )
-    //! Génère une Fatal error: Interface function interfaceTest::getHello() cannot contain body
+    // Force les classes qui implémente l'interface à définir ces méthodes
+    public function getNumber($id);
+    public function getHello();
+
+    // Une Interface ne peut pas contenir de définitions de propriéte en son sein
+    // Cela génère une fatal error : Interfaces may not include member variables
+    // public $vars = "vars";
+
+    // Une classe abstraite ne contient pas d'algorithmie dans ces méthodes
+    // Génère une Fatal error: Interface function interfaceTest::getHello() cannot contain body
+    /*
     public function getHello(); 
-    /*{
-        dadadz;
-    }*/
-    public function getAddition($num1, $num2);
+    {
+        return 'Hello' . PHP_EOL;
+    }
+    */
+
 }
 
-// Déclaration d'une classe qui implémente notre interfaceTest
+// Déclaration d'une classe qui implémente notre interface
 class bonTemplate implements interfaceTest
 {
 
     public function getHello(){
-        return 'hello <br>';
+        return "Hello". PHP_EOL;
     }
 
-    // Comme pour les classe abstract il faut déclarer les méthode qui sont dans notre interfaceTest
+    // Comme pour les classes abstraites il faut déclarer les méthodes qui sont dans notre interfaceTest
     // Sinon une erreur fatal Error
     // Fatal error: Class bonTemplate contains 1 abstract methods
     // and must therefore be declared abstract (interfaceTest::getAddition)
-    // Commenter pour voir l'erreur
-    public function getAddition($num1, $num2){
-        return $num1 + $num2;
+    public function getNumber($id){
+        return $id . PHP_EOL;
     }
 }
 
 $bonTemplate = new bonTemplate();
-echo $bonTemplate->getHello();
-echo $bonTemplate->getAddition(1 , 2);
+echo $bonTemplate->getNumber(1); // Sortie : 1
+echo $bonTemplate->getHello(); // Sortie : Hello
 
 
 // Plus d'exemple sont disponibles dans la doc de php afin de comprendre les spécifités des interface
