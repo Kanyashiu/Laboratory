@@ -11,7 +11,8 @@ echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "INTERFACE" . PHP_EOL;
 echo "================================\033[0m" . PHP_EOL;
 
-
+// A la différence d'une classe abstraite, l'objectif d'une interface n'est pas de donné une architecture à un objet
+// mais juste d'en définir des méthodes qui permettront de comprendre comment un objet qui implémente cette interface fonctionne
 // Documentation sur les interface :
 //https://www.php.net/manual/fr/language.oop5.interfaces.php
 
@@ -23,7 +24,7 @@ interface interfaceA
     public function getNumber($id);
     public function getHello();
 
-    // Des constantes peuvent être déclaré dans l'interface mais elle à une certain spécificité
+    // Des constantes peuvent être déclaré dans l'interface mais elle à une certaine spécificité
     // Elle ne peut pas être écrasé par les classes qui utilise cette interface
     const A = 'InterfaceA' . PHP_EOL;
 
@@ -31,7 +32,7 @@ interface interfaceA
     // Cela génère une fatal error : Interfaces may not include member variables
     // public $vars = "vars";
 
-    // Une classe abstraite ne contient pas d'algorithmie dans ces méthodes
+    // Une Interface ne contient pas d'algorithmie dans ces méthodes
     // Génère une Fatal error: Interface function interfaceA::getHello() cannot contain body
     /*
     public function getHello(); 
