@@ -10,7 +10,9 @@ echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "Singleton" . PHP_EOL;
 echo "================================\033[0m" . PHP_EOL;
 
-// Le patron de conception Singleton est sujet à débat !
+// Le patron de conception Singleton à pour objectif de permettre à une classe de ne pas pouvoir être instancié plus d'une seule fois,
+// une fois la classe instancié elle ne peut plus être instancié une seule version de l'objet existe dans le code mais ce design pattern est sujet à débat !
+// Lien :
 // Mais https://www.google.com/search?client=firefox-b-d&q=singleton+is+evil
 // Mais https://dzone.com/articles/whats-so-evil-about-singletons
 // Voir Builder Pattern https://fr.wikipedia.org/wiki/Monteur_(patron_de_conception) ou Factory Pattern https://fr.wikipedia.org/wiki/Fabrique_(patron_de_conception)
