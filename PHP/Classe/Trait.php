@@ -6,7 +6,7 @@
 // Si vous voulez tester ce script placer vous dans le dossier contenant ce script avec votre console et taper "php nom-du-script.php"
 //==================================
  
-
+// Les trait sont un mécanisme trés utile ! Car il permet de réutiliser du code générique dans n'importe quelle classe
 
 // Documentation sur les trait :
 //https://www.php.net/manual/fr/language.oop5.traits.php
