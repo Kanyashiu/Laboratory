@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
+html {
+    font-family: Rowdies, Arial, sans-serif;
+}
+
+body {
+    background-color: #093c57;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Rowdies, Arial, sans-serif;
+}
+
+
+form {
+    max-width: 27%;
+    background-color: #dee7ec;
+    padding: 1rem;
+    border-radius: 0.7rem;
+    box-shadow: 60px -16px #27adad;
+    text-align: center;
+}
+
+#form-title {
+    color: #0b6e8e;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-label {
+    color: #0b6e8e;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.field-input {
+    background-color: #afd7e3;
+    border: 2px solid #0093bc;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.field-input::placeholder {
+    color: #0093bc;
+    font-family: Rowdies, Arial, sans-serif;
+}
+
+.field-info {
+    color: #848e90;
+    font-size: 0.8rem;
+}
+
+.field-error {
+    background-color: #e3afaf;
+    border: 2px solid #bc0000;
+    color: #bc0000;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+#login-submit {
+    background-color: #0297bc;
+    border: 2px solid #0093bc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    color: white;
+    font-family: Rowdies, Arial, sans-serif;
+}
