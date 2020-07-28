@@ -3,6 +3,7 @@
 //==================================
 // DISCLAIMER
 // Source des exercices : https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
+// Ce fichier est un énoncé d'exercices pour php, les corrections sont dans le dossier correspondant
 //==================================
 
 // Exercice 1, Faite en sorte que la fonction HelloWorld retourne exactement la valeur Hello World!
