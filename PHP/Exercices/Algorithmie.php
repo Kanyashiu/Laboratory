@@ -1,9 +1,9 @@
-<?php
+a<?php
 
 //==================================
 // DISCLAIMER
 // Source des exercices 1 à 10 : https://www.fustel-yaounde.net/sites/default/files/Doucments-2017-03/exercices%20corrig%C3%A9s%20algorithme.pdf
-// Source des exercices 11 à 14 : https://www.fustel-yaounde.net/sites/default/files/Doucments-2017-03/exercices%20corrig%C3%A9s%20algorithme.pdf
+// Source des exercices 11 à 14 : https://fabien-torre.fr/Enseignement/Exercices/algo-exos.php
 // Ce fichier est un énoncé d'exercices pour php, les corrections sont dans le dossier correspondant
 //==================================
 

@@ -3,14 +3,14 @@
 //==================================
 // DISCLAIMER
 // Source des exercices 1 à 23 : https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
-// Source des exercices 24 à 33 : https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
-// Source des exercices 34 à 33 : https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
+// Source des exercices 24 à 33 : https://openclassrooms.com/forum/sujet/exercices-pour-debutants-en-php-91660e
+// Source des exercices 34 à 35 : https://openclassrooms.com/forum/sujet/exercices-et-tp-d-entrainement-en-php-85498
 // Ce fichier est un énoncé d'exercices pour php, les corrections sont dans le dossier correspondant
 //==================================
 
-// Exercice 1, Faite en sorte que la fonction HelloWorld retourne exactement la valeur Hello World!
+// Exercice 1, Faite en sorte que la fonction helloWorld retourne exactement la valeur "Hello World!"
 
-// Exercice 2, Créer une fonction from scratch qui s'appelle quiEstLeMeilleurProf(). Elle doit retourner Le prof de programmation Web
+// Exercice 2, Créer une fonction from scratch qui s'appelle quiEstLeMeilleurProf(). Elle doit retourner "Le prof de programmation Web"
 
 // Exercice 3, Créer une fonction from scratch qui s'appelle jeRetourneMonArgument(). Exemple : Arg = "abc" ==> Return abc Arg = 123 ==> Return 123
 
