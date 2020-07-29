@@ -5,7 +5,6 @@
 // Exemple : argument 1 = Antoine Argument 2 = Griezmann; Resultat : AntoineGriezmann
 
 
-
 function concatenation($string1, $string2) {
     return $string1 . $string2;
 };

@@ -5,7 +5,6 @@
 // Exemple : argument 1 = Ngolo Argument 2 = Kante; Resultat : Ngolo Kante
 
 
-
 function concatenationAvecEspace($string1, $string2) {
     return $string1 ." ". $string2;
 };

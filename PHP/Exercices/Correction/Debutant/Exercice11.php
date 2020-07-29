@@ -1,13 +1,12 @@
 <?php
 
-// Exercice 10, Créer une fonction from scratch qui s'appelle plusGrand().
-// Elle prendra deux arguments de type int. Elle devra retourner le plus grand des deux.
+// Exercice 11, Créer une fonction from scratch qui s'appelle plusPetit().
+// Elle prendra deux arguments de type int. Elle devra retourner le plus petit des deux.
 
 
-
-function plusGrand($int1, $int2) {
-    return $int1 > $int2 ? $int1 : $int2 . PHP_EOL;
+function plusPetit($int1, $int2) {
+    return $int1 < $int2 ? $int1 : $int2;
 };
 
-echo plusGrand(20, 50);
-echo plusGrand(5, 2);
+echo plusPetit(20, 50) . PHP_EOL ;
+echo plusPetit(5, 2) . PHP_EOL ;

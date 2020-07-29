@@ -5,7 +5,6 @@
 // Si age >= 18 elle doit retourner true si age < 18 elle doit retourner false Exemple : age = 5 ==> false age = 34 ==> true
 
 
-
 function estIlMajeure($age) {
     return $age > 18 ? true : false;
 };

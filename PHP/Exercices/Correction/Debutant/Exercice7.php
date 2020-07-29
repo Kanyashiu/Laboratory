@@ -5,7 +5,6 @@
 // Exemple : argument 1 = 5 Argument 2 = 5 ; Resultat : 0
 
 
-
 function soustraction($int1, $int2) {
     return $int1 - $int2;
 };
