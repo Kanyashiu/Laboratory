@@ -3,7 +3,7 @@
 //==================================
 // DISCLAIMER
 // Source des exercices 1 à 23 : https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
-// Source des exercices 24 à 33 : https://openclassrooms.com/forum/sujet/exercices-pour-debutants-en-php-91660e
+// Source des exercices 24 à 33 : https://openclassrooms.com/forum/sujet/exercices-pour-debutants-en-php-91660
 // Source des exercices 34 à 35 : https://openclassrooms.com/forum/sujet/exercices-et-tp-d-entrainement-en-php-85498
 // Ce fichier est un énoncé d'exercices pour php, les corrections sont dans le dossier correspondant
 //==================================
@@ -126,6 +126,7 @@ Votre fonction doit retourner trois valeurs différentes:
 // Exercice 27, Conjecture de Syracuse : Créez une fonction qui prend comme argument n'importe quel nombre entier supérieur à zéro, 
 // si le nombre est pair divisez-le par 2, si le nombre est impair multipliez-le par 3 et ajoutez 1. 
 // Au final votre fonction doit retourner une série de nombre, le dernier de ces nombres doit être le chiffre 1.
+// N'importe quel nombre entier supérieur à zéro doit subir des opérations, même le chiffre 1. La suite de Syracuse du chiffre 1 est "4 2 1". 
 
 // Exercice 28, Triangle : Créez une fonction qui prend un argument de type int, cela déterminera la hauteur (en ligne) d'un triangle isocèle rempli d'étoiles
 /* Exemple :
