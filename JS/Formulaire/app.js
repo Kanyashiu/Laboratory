@@ -29,7 +29,7 @@ let app = {
 
         // Dans le cas d'un formulaire preventDefault est trés utile car il permet
         // d'annuler le comportement par défaut d'un formulaire qui est de recharger la page à sa soumission
-        //! Doc :
+        // Doc : https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault
         evt.preventDefault();
     },
 }
