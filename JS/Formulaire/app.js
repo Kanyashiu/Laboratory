@@ -10,27 +10,58 @@ let app = {
     init: function() {
         
         // document.getElementById me permet de cibler le formulaire contenu dans mon DOM grâce à son id
-        // Doc : https://developer.mozilla.org/fr/docs/Web/API/Document/getElementById
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Document/getElementById
         let formElement = document.getElementById('login-form');
         
         // addEventListener me permet "d'accrocher" à mon formulaire un écouteur d'évènement
         // précisé dans le 1er argument dans l'exemple ci-dessous c'est l'évènement submit qui va être écouter
         // et quand il va être déclencher, le second argument est un callback qui va déclencher la méthode précisé
-        // Doc : https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener
         formElement.addEventListener('submit', app.handleSubmit);
-        
+
     },
 
     handleSubmit : function(evt) {
         // evt contient des information lié à l'événement déclenché par l'écouteur d'événement
         // cela permet de faire plein de manipulation utile
-        console.log(evt);
+        // console.log(evt);
 
+        // On récupère les input dans le formulaire avec leur #id
+        let usernameInput = document.getElementById('field-username');
+        let passwordInput = document.getElementById('field-password');
+
+        let checkUsername = app.handleUsername(usernameInput);
+        let checkPassword = app.handlePassword(passwordInput);
 
         // Dans le cas d'un formulaire preventDefault est trés utile car il permet
         // d'annuler le comportement par défaut d'un formulaire qui est de recharger la page à sa soumission
-        // Doc : https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault
         evt.preventDefault();
+    },
+
+    handleUsername : function(usernameElement) {
+
+        if (usernameElement.value.length >= 5) {
+            usernameElement.style.borderColor ='#00d1b2';
+        }
+        else {
+            usernameElement.style.borderColor ='#bc0000';
+        }
+    },
+
+    handlePassword : function(passwordElement) {
+
+        // L'objet RegExp contient des méthodes qui permet de décrire un pattern que l'on cherche
+        // dans une chaine de caractère
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/RegExp
+        let regex = new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/, 'gm');
+
+        if (regex.test(passwordElement.value)) {
+            passwordElement.style.borderColor ='#00d1b2';
+        }
+        else {
+            passwordElement.style.borderColor ='#00d1b2';
+        }
     },
 }
 
