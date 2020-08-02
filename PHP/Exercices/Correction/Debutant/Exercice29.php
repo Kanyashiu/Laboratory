@@ -16,7 +16,10 @@ function fibonnaci($month) {
     // f3 = f2 + f1
     // f4 = f3 + f2
     // etc...
-
+    
+    if ($month == 0) {
+        return $month;
+    }
     
     $nb_couple_n = 0;
     $nb_couple = 1;
