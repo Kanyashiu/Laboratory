@@ -32,20 +32,32 @@ let app = {
 
         let checkUsername = app.handleUsername(usernameInput);
         let checkPassword = app.handlePassword(passwordInput);
+        
+        if (!checkUsername) {
+            // Dans le cas d'un formulaire preventDefault est trés utile car il permet
+            // d'annuler le comportement par défaut d'un formulaire qui est de recharger la page à sa soumission
+            // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault
+            app.errorMessage();
+            evt.preventDefault();
+        }
 
-        // Dans le cas d'un formulaire preventDefault est trés utile car il permet
-        // d'annuler le comportement par défaut d'un formulaire qui est de recharger la page à sa soumission
-        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault
-        evt.preventDefault();
+        if (!checkPassword) {
+            app.errorMessage();
+            evt.preventDefault();
+        }
     },
 
     handleUsername : function(usernameElement) {
 
         if (usernameElement.value.length >= 5) {
-            usernameElement.style.borderColor ='#00d1b2';
+            usernameElement.style.borderColor ='#4CAF50';
+            usernameElement.style.borderWidth ='5px';
+            return true;
         }
         else {
             usernameElement.style.borderColor ='#bc0000';
+            usernameElement.style.borderWidth ='5px';
+            return false;
         }
     },
 
@@ -57,11 +69,23 @@ let app = {
         let regex = new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,}$/, 'gm');
 
         if (regex.test(passwordElement.value)) {
-            passwordElement.style.borderColor ='#00d1b2';
+
+            // Element.style permet d'affecter le style d'un element dans le dom afin de lui appliquer
+            // un nouveau style ou d'en modifier un
+            // Documentation : https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/style
+            passwordElement.style.borderColor ='#4CAF50';
+            passwordElement.style.borderWidth ='5px';
+            return true;
         }
         else {
-            passwordElement.style.borderColor ='#00d1b2';
+            passwordElement.style.borderColor ='#bc0000';
+            passwordElement.style.borderWidth ='5px';
+            return false;
         }
+    },
+
+    errorMessage : function() {
+
     },
 }
 
