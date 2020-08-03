@@ -32,17 +32,19 @@ let app = {
 
         let checkUsername = app.handleUsername(usernameInput);
         let checkPassword = app.handlePassword(passwordInput);
+
+        app.cleanErrorMessage();
         
         if (!checkUsername) {
             // Dans le cas d'un formulaire preventDefault est trés utile car il permet
             // d'annuler le comportement par défaut d'un formulaire qui est de recharger la page à sa soumission
             // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault
-            app.errorMessage();
+            app.errorMessage("Votre identifiant contient moins de 5 caractères");
             evt.preventDefault();
         }
 
         if (!checkPassword) {
-            app.errorMessage();
+            app.errorMessage("Votre mot de passe n'est pas conforme");
             evt.preventDefault();
         }
     },
@@ -84,9 +86,25 @@ let app = {
         }
     },
 
-    errorMessage : function() {
+    errorMessage : function(message) {
 
+        parentDivElement = document.getElementById('errors');
+
+        divElement = document.createElement('div');
+        divElement.classList.add("field-error");
+        divElement.textContent = message;
+        
+        parentDivElement.append(divElement);
     },
+
+    cleanErrorMessage : function() {
+        
+        parentDivElement = document.getElementById('errors');
+
+        parentDivElement.innerHTML = '';
+
+        console.log(parentDivElement);
+    }
 }
 
 // Cette écouteur d'évenment permet au chargement de la page de lancer la méthode init dans l'objet app
