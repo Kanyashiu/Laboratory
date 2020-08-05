@@ -86,6 +86,7 @@ let app = {
         }
     },
 
+    //! FAIRE LES COMMENTAIRES
     errorMessage : function(message) {
 
         parentDivElement = document.getElementById('errors');
