@@ -86,15 +86,26 @@ let app = {
         }
     },
 
-    //! FAIRE LES COMMENTAIRES
     errorMessage : function(message) {
 
         parentDivElement = document.getElementById('errors');
 
+        // document.createElement() me permet de creer un element HTML précisé dans l'argument
+        // dans mon cas je crée une div
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Document/createElement
         divElement = document.createElement('div');
+
+        // J'ajoute à cette div une classe avec element.classList.add()
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Element/classList
         divElement.classList.add("field-error");
+
+        // element.textContent me permet de cibler le contenu textuel de ma div
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Node/textContent
         divElement.textContent = message;
         
+        // Une fois ma div crée je la lie à son noeud parent avec NodeParent.append()
+        // afin de l'ajouter à mon DOM
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/ParentNode/append
         parentDivElement.append(divElement);
     },
 
@@ -102,6 +113,10 @@ let app = {
         
         parentDivElement = document.getElementById('errors');
 
+        // Avec Element.innerHTML je cible le contenu HTML des enfants de ce noeud
+        // et je le nettoie afin de supprimer les div, cela permet d'éviter que app.errorMessage
+        // crée des div qui se superpose
+        // Documentation : https://developer.mozilla.org/fr/docs/Web/API/Element/innertHTML
         parentDivElement.innerHTML = '';
 
         console.log(parentDivElement);
