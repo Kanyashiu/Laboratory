@@ -2,18 +2,17 @@
 
 // Exercice 1, Ecrire un algorithme qui demande à l’utilisateur un nombre compris entre 1 et 3 jusqu’à ce que la réponse convienne.
 
-function checkInt() {
+function checkInt($int) {
     
-    $number = readline("Entrez un nombre entre 1 et 3 : ");
-
-    if ( $number >= 1 && $number <= 3)
+    if ( $int >= 1 && $int <= 3)
     {
-        echo 'Bravo votre nombre est compris entre 1 et 3' . PHP_EOL;
+        echo 'Bravo ! votre nombre est compris entre 1 et 3' . PHP_EOL;
     }
     else {
-        echo "Votre nombre n'est pas compris entre 1 et 3" . PHP_EOL;
-        checkInt();
+        $int = readline("Recommencez, saisie erroné : ") . PHP_EOL;
+        checkInt($int);
     }
 };
 
-checkInt();
+$number = readline("Entrez un nombre entre 1 et 3 : ");
+checkInt($number);
