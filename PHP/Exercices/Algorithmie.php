@@ -15,12 +15,12 @@
 // Exercice 3, Ecrire un algorithme qui demandeun nombre de départ, et qui ensuite affiche les dix nombres suivants. 
 // Par exemple, si l'utilisateur entre le nombre 17, le programme affichera les nombres de 18 à 27.
 
-// Exercice 4, Ecrire un algorithme qui demandeun nombre de départ, et qui ensuite écrit la table de multiplication de ce nombre ( Sur 10 multiplication ),
+// Exercice 4, Ecrire un algorithme qui demande un nombre de départ, et qui ensuite écrit la table de multiplication de ce nombre ( Sur 10 multiplication )
 
-// Exercice 5, Ecrire un algorithme qui demandeun nombre de départ, et qui calcule la somme des entiers jusqu’à ce nombre. 
+// Exercice 5, Ecrire un algorithme qui demande un nombre de départ, et qui calcule la somme des entiers jusqu’à ce nombre. 
 // Par exemple, si l’on entre 5, le programme doit calculer:1 + 2 + 3 + 4 + 5 = 15
 
-// Exercice 6, Ecrire un algorithme qui demandeun nombre de départ, et qui calcule sa factorielle.
+// Exercice 6, Ecrire un algorithme qui demande un nombre de départ, et qui calcule sa factorielle.
 // NB: la factorielle de 8, notée 8!, vaut 1 x 2 x 3 x 4 x 5 x 6 x 7 x 8
 
 /* Exercice 7, Ecrire un algorithme qui demande successivement 20 nombres à l’utilisateur, et qui lui dise ensuite quel était le plus grand parmi ces 20 nombres:
