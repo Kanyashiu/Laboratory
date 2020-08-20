@@ -51,6 +51,11 @@ class TypeHinting
     {
         return $null;
     }
+
+    public function checkString ( string $string)
+    {
+        return $string . PHP_EOL;
+    }
 }
 
 $typeHinting = new TypeHinting();
@@ -146,4 +151,12 @@ echo "\f\f";
 echo "==============STRING ( chaine de caractère ) ================" . PHP_EOL;
 // Documentation sur les chaine de caractère : https://www.php.net/manual/fr/language.types.string.php
 
+echo $typeHinting->checkString('quote');
+echo $typeHinting->checkString("double quote");
+
+$bar = <<<EOT
+bar
+EOT;
+
+echo $typeHinting->checkString($bar);
 // TODO
