@@ -9,7 +9,7 @@
 // La déclaration de type ( TypeHinting ), permet de créer une restriction sur les arguments passé à des méthodes, générant une erreur fatal
 
 // Documentation sur les déclaration de type :
-//https://www.php.net/manual/fr/functions.arguments.php#functions.arguments.type-declaration
+// https://www.php.net/manual/fr/functions.arguments.php#functions.arguments.type-declaration
 
 echo "\e[1;33m\033[32m================================" . PHP_EOL;
 echo "TYPE HINTING" . PHP_EOL;
@@ -55,6 +55,11 @@ class TypeHinting
     public function checkString ( string $string)
     {
         return $string . PHP_EOL;
+    }
+
+    public function checkArray( array $array)
+    {
+        return $array[0];
     }
 }
 
@@ -154,9 +159,27 @@ echo "==============STRING ( chaine de caractère ) ================" . PHP_EOL;
 echo $typeHinting->checkString('quote');
 echo $typeHinting->checkString("double quote");
 
-$bar = <<<EOT
-bar
+$heredoc = <<<EOT
+Syntaxe 
+    Heredoc
 EOT;
 
-echo $typeHinting->checkString($bar);
-// TODO
+echo $typeHinting->checkString($heredoc);
+
+$nowdoc = <<<EOD
+Syntaxe 
+    Nowdoc
+EOD;
+
+echo $typeHinting->checkString($nowdoc);
+echo "\f\f";
+
+echo "==============ARRAY ( Tableaux )================" . PHP_EOL;
+// Documentation sur les tableau : https://www.php.net/manual/fr/language.types.array.php
+
+echo $typeHinting->checkArray(['array']) . PHP_EOL;
+
+echo $typeHinting->checkArray(array('array with function')) . PHP_EOL;
+echo "\f\f";
+
+// TODO Traversable
