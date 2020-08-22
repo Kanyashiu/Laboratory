@@ -61,6 +61,11 @@ class TypeHinting
     {
         return $array[0];
     }
+
+    public function checkObject( object $object)
+    {
+        return "C'est bien un objet qui a été envoyé !";
+    }
 }
 
 $typeHinting = new TypeHinting();
@@ -182,4 +187,21 @@ echo $typeHinting->checkArray(['array']) . PHP_EOL;
 echo $typeHinting->checkArray(array('array with function')) . PHP_EOL;
 echo "\f\f";
 
-// TODO Traversable
+
+echo "==============OBJECT ( Objet )================" . PHP_EOL;
+// Documentation sur les objets : https://www.php.net/manual/fr/language.types.object.php
+
+class testObject 
+{
+    
+}
+
+$obj1 = new testObject();
+echo $typeHinting->checkObject($obj1) . PHP_EOL;
+
+
+$obj2 = (object) ['object'];
+echo $typeHinting->checkObject($obj2) . PHP_EOL;
+
+echo "\f\f";
+
