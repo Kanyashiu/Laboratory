@@ -62,9 +62,24 @@ class TypeHinting
         return $array[0];
     }
 
+    public function checkIterable( iterable $iterable)
+    {
+        return "C'est bien un tableau itérable !";
+    }
+
     public function checkObject( object $object)
     {
         return "C'est bien un objet qui a été envoyé !";
+    }
+
+    public function checkTestObject( TestObject $testObject)
+    {
+        return "C'est bien un objet de la classe TestObject";
+    }
+
+    public function checkSelf( self $self)
+    {
+        return "C'est bien un objet de la Classe TypeHinting";
     }
 }
 
@@ -179,24 +194,26 @@ EOD;
 echo $typeHinting->checkString($nowdoc);
 echo "\f\f";
 
-echo "==============ARRAY ( Tableaux )================" . PHP_EOL;
+echo "==============ARRAY & ITERABLE ( Tableaux )================" . PHP_EOL;
 // Documentation sur les tableau : https://www.php.net/manual/fr/language.types.array.php
 
 echo $typeHinting->checkArray(['array']) . PHP_EOL;
+echo $typeHinting->checkIterable(['array']) . PHP_EOL;
 
 echo $typeHinting->checkArray(array('array with function')) . PHP_EOL;
+echo $typeHinting->checkIterable(array('array with function')) . PHP_EOL;
 echo "\f\f";
 
 
 echo "==============OBJECT ( Objet )================" . PHP_EOL;
 // Documentation sur les objets : https://www.php.net/manual/fr/language.types.object.php
 
-class testObject 
+class TestObject 
 {
     
 }
 
-$obj1 = new testObject();
+$obj1 = new TestObject();
 echo $typeHinting->checkObject($obj1) . PHP_EOL;
 
 
@@ -205,3 +222,20 @@ echo $typeHinting->checkObject($obj2) . PHP_EOL;
 
 echo "\f\f";
 
+
+echo "============== OBJECT ( Nom de la classe/interface )================" . PHP_EOL;
+
+
+$obj1 = new TestObject();
+echo $typeHinting->checkTestObject($obj1) . PHP_EOL;
+
+echo "\f\f";
+
+echo "============== SELF ( Classe qui à défini la méthode )================" . PHP_EOL;
+
+echo $typeHinting->checkSelf($typeHinting) . PHP_EOL;
+
+// echo $typeHinting->checkSelf($obj1) . PHP_EOL; // Sortie : Fatal Erreur => Argument 1 passed to TypeHinting::checkSelf() must be an instance of TypeHinting, instance of TestObject given
+
+
+echo "\f\f";
