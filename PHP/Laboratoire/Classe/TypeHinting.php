@@ -81,6 +81,11 @@ class TypeHinting
     {
         return "C'est bien un objet de la Classe TypeHinting";
     }
+
+    public function checkCallable( callable $callable)
+    {
+        return "C'est bien une fonction de rappel";
+    }
 }
 
 $typeHinting = new TypeHinting();
@@ -236,6 +241,19 @@ echo "============== SELF ( Classe qui à défini la méthode )================"
 echo $typeHinting->checkSelf($typeHinting) . PHP_EOL;
 
 // echo $typeHinting->checkSelf($obj1) . PHP_EOL; // Sortie : Fatal Erreur => Argument 1 passed to TypeHinting::checkSelf() must be an instance of TypeHinting, instance of TestObject given
+
+
+echo "\f\f";
+
+echo "============== CALLABLE ( Fonction de rappel )================" . PHP_EOL;
+
+$callBack = function() {
+    return "CallBack";
+};
+
+echo $typeHinting->checkCallable($callBack) . PHP_EOL;
+
+// echo $typeHinting->checkCallable("String"); // Sortie : Fatal Error => Argument 1 passed to TypeHinting::checkCallable() must be callable, string given
 
 
 echo "\f\f";
