@@ -252,6 +252,7 @@ $callBack = function() {
 };
 
 echo $typeHinting->checkCallable($callBack) . PHP_EOL;
+echo $typeHinting->checkCallable(function() { return "Callback"; }) . PHP_EOL;
 
 // echo $typeHinting->checkCallable("String"); // Sortie : Fatal Error => Argument 1 passed to TypeHinting::checkCallable() must be callable, string given
 
