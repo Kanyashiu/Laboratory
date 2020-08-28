@@ -11,6 +11,7 @@
 
 // Documentation sur les fonction anonymes :
 // https://www.php.net/manual/fr/functions.anonymous.php#functions.anonymous
+// https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/oriente-objet-closure-classe-anonyme/
 
 
 echo "\e[1;33m\033[32m================================" . PHP_EOL;
@@ -57,3 +58,6 @@ $tableau = [1, 2, 3, 4, 5, 6, 8, 15];
 $multiplication_tableau = array_map($multiplication, $tableau);
 
 print_r($multiplication_tableau); PHP_EOL;
+
+
+// TODO Définition et intérêt des classes anonymes
