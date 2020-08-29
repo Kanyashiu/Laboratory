@@ -60,4 +60,56 @@ $multiplication_tableau = array_map($multiplication, $tableau);
 print_r($multiplication_tableau); PHP_EOL;
 
 
-// TODO Définition et intérêt des classes anonymes
+echo "\e[1;33m\033[32m================================" . PHP_EOL;
+echo "CREATION D'UNE CLASSE ANONYMES" . PHP_EOL;
+echo "================================\033[0m" . PHP_EOL;
+
+// Comme pour les fonction anonymes, les classe anonymes sont des classe sans nom
+// un des objectifs des classe anonymes est de créer des objet simple et unique à la volée
+
+// On stocke la classe anonyme dans une variable
+$anonyme = new class
+    {
+        public $name;
+        public const HELLO = "Hello ";
+
+        public function setName($name) 
+        {
+            $this->name = $name;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+
+    };
+
+$anonyme->setName('Karim');
+echo $anonyme::HELLO;
+echo $anonyme->getName() . PHP_EOL; // Sortie : Hello Karim
+
+// On crée la classe anonyme dans une fonction
+function anonyme1() {
+    
+    return new class {
+        public $name;
+        public const BONJOUR = "Bonjour ";
+
+        public function setName($name) 
+        {
+            $this->name = $name;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+
+    };
+}
+    
+$anonyme1 = anonyme1();
+$anonyme1->setName('Karim');
+echo $anonyme1::BONJOUR;
+echo $anonyme1->getName() . PHP_EOL; // Sortie : Bonjour Karim
