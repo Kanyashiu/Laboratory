@@ -113,3 +113,27 @@ $anonyme1 = anonyme1();
 $anonyme1->setName('Karim');
 echo $anonyme1::BONJOUR;
 echo $anonyme1->getName() . PHP_EOL; // Sortie : Bonjour Karim
+
+// On crée la classe anonyme avec son constructeur dans une fonction
+function anonyme2($name) {
+    
+    return new class($name) {
+        public $name;
+        public const HALLO = "Hallo ";
+
+        public function __construct($name)
+        {
+            $this->name = $name;
+        }
+
+        public function getName()
+        {
+            return $this->name;
+        }
+
+    };
+}
+    
+$anonyme2 = anonyme2('Karim');
+echo $anonyme2::HALLO;
+echo $anonyme2->getName() . PHP_EOL; // Sortie : Hallo Karim
