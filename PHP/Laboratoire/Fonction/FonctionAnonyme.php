@@ -137,3 +137,34 @@ function anonyme2($name) {
 $anonyme2 = anonyme2('Karim');
 echo $anonyme2::HALLO;
 echo $anonyme2->getName() . PHP_EOL; // Sortie : Hallo Karim
+
+// On crée la classe anonyme dans une classe Externe
+class Externe{
+    
+    private $age = 27;
+    protected $name = 'Karim';
+
+    public function anonyme3(){
+
+        // On étend la classe Externe pour récuperer ses propriétés
+        return new class($this->age, $this->name) extends Externe {
+            
+            private $a;
+            private $n;
+            public const HOLA = "Hola ";
+                    
+            public function __construct($age, $name){
+                $this->a = $age;
+                $this->n = $name;
+            }
+            
+            public function getNameAge(){
+                return "me llamo " . $this->n . ", tengo ". $this->a . " años";
+            }
+        };
+    }
+}
+    
+$anonyme3 = new Externe;
+echo $anonyme3->anonyme3()::HOLA;
+echo $anonyme3->anonyme3()->getNameAge() . PHP_EOL; // Sortie : Hola me llamo Karim, tengo 27 años
