@@ -1,0 +1,72 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.calculatrice {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    /* responsive */
+    width: 70%;
+    margin-top: 5vh;
+}
+
+.ecran,
+.historique {
+    width: 100%;
+    text-align: end;
+    /* responsive */
+    height: 10vh;
+}
+
+.historique {
+    /* responsive */
+    height: 5vh;
+}
+
+.addition,
+.soustraction,
+.multiplication,
+.division {
+    width: 25%;
+    /* responsive */
+    height: 15vh;
+}
+
+.bas-gauche,
+.bas-droite {
+    display: flex;
+    flex-wrap: wrap;   
+}
+
+.bas-gauche {
+    width: 75%;
+}
+
+.bas-droite {
+    width: 25%;
+}
+
+.number,
+.point,
+.reset {
+    width: calc( 100% / 3);
+    /* responsive */
+    height: 15vh;
+}
+
+.equal
+{
+    width: 100%;
+}
+
+div {
+    border: black 1px solid;
+}
+
+.bas-gauche,
+.bas-droite {
+    border: none;
+}
