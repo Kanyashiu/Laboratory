@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <title>Découverte</title>
+
+    <style>
+        .main.container{
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ui main container" id="app">
+
+        <!-- v:model='nom de la variable' permet de faire un lien avec une variable de notre composant -->
+        <input type="text" v-model='message'> <br>
+        <input type="checkbox" v-model ='success'> <br>
+
+        <!-- :class permet de faire des ajout de classe selon des condition dans la balise -->
+        <!-- écriture ternaire => success ? 'success' : 'error' -->
+        <!-- écriture objet =>  success: succes, error : !success -->
+        <div class="ui message" :class="{ success: success, error : !success }">
+            <p>Test changement de classe</p>
+        </div>
+
+        <!-- :style permet de changer le style de la balise -->
+        <!-- écriture methode ou propriété => on peut stocker un changement ou une définition dans le composant lui-même -->
+        <div class="ui message" :style="style()">
+            <p>Test changement de style</p>
+        </div>
+
+        <!-- :true-value & :false-value permettent de changer une variable selon l'état du checkbox -->
+        <input type="checkbox" v-model='cls' :true-value="'success'" :false-value="'error'">
+        <div class="ui message" :class='cls'>
+            <p>Test changement de classe avec variable dans data</p>
+        </div>
+
+        <!-- v-bind:nom-de-l'attribut permet de mettre dans l'attribut une variable de notre composant -->
+        <!-- :nom-de-l'attribut est un raccourci de v-bind -->
+        <!-- On peut concaténer dans l'attribut avec + 'chaine de caractères' mais il à une manière plus propre -->
+        <a v-bind:href="link" :title='message'> {{ message }}</a>
+
+        <!-- v-if ou v-show permet d'afficher ce bloc si la variable est true ou false -->
+        <!-- v-if fait disparaitre du code html le bloc -->
+        <!-- v-show utilise un display-none sur le bloc -->
+        <div class="ui success message" v-if="success">
+            <!-- v-on:'nom de l'évènement'='nom de la méthode' permet d'attribué un évènement qui se déclenchera après une certain action -->
+            <!-- @click est le raccourci de v:on -->
+            <i class="close icon" @click="close()"></i>
+            <p>Bravo votre enregistrement a marché</p>
+        </div>
+        <!-- v-else permet d'être utilisé avec le v-if-->
+        <!-- <div class="ui error message" v-else>
+            <i class="close icon"></i>
+            <p>Echec votre enregistrement à échoué</p>
+        </div> -->
+
+        <!-- v-for permet de faire une boucle -->
+        <ul>
+            <li v-for="person in persons"> {{ person }}</li>
+        </ul>
+    </div>
+    
+    <!-- Cdn plus intéréssant pour l'apprentissage -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
