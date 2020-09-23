@@ -1,4 +1,5 @@
-new Vue({
+// On stocke notre instance dans une variable
+let vm = new Vue({
 
     // Element à ciblé
     el: '#app',
@@ -7,7 +8,6 @@ new Vue({
     data : {
         message : 'Salut tout le monde',
         link : '#',
-        success: true,
         cls : 'success',
         persons : ['Jonathan', 'Marion', 'Marine', 'Karim', 'Tony'],
     },
@@ -17,12 +17,5 @@ new Vue({
         close: function() {
             this.success = false
         },
-        style: function() {
-            if(this.success) {
-                return {background: '#f00'}
-            } else {
-                return {background: '#00f'}
-            }
-        }
     }
 })
